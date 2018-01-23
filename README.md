@@ -9,5 +9,5 @@ npm install -g braingames-ignat
 
 ## Run
 ```bash
-brain-games
+brain-even
 ```
