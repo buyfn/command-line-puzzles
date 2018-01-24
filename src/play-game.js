@@ -1,33 +1,24 @@
 import readlineSync from 'readline-sync';
 
-const generateQuestion = () => {
-  const upperLimit = 100;
-  return Math.round(Math.random() * upperLimit);
-};
-
 const getUserInput = message => () => readlineSync.question(`${message} `);
 
 const getAnswer = () => getUserInput('Your answer:')();
 
 const getUsername = () => getUserInput('What\'s your name, buddy?')();
 
-const isCorrect = (userAnswer, predicate, number) =>
-  (userAnswer === 'yes' && predicate(number)) ||
-  (userAnswer === 'no' && !predicate(number));
+const isCorrect = (userAnswer, checker) => checker(userAnswer);
 
-const isEven = n => (n % 2 === 0);
-
-const makeGame = player => (goal) => {
+const makeGame = (player, makeQuestion, questionToString, checkAnswer, goal) => () => {
   let score = 0;
-  let questionNum;
+  let question;
   let userAnswer;
 
   while (score < goal) {
-    questionNum = generateQuestion();
-    console.log(`Question: ${questionNum}`);
+    question = makeQuestion();
+    console.log(`Question: ${questionToString(question)}`);
     userAnswer = getAnswer();
 
-    if (isCorrect(userAnswer, isEven, questionNum)) {
+    if (isCorrect(userAnswer, checkAnswer(question))) {
       score += 1;
       console.log('Correcto!');
     } else {

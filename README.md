@@ -11,3 +11,7 @@ npm install -g braingames-ignat
 ```bash
 brain-even
 ```
+
+```bash
+brain-calc
+```
