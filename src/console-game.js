@@ -8,7 +8,9 @@ const getUsername = () => getUserInput('What\'s your name, buddy?')();
 
 const isCorrect = (userAnswer, checker) => checker(userAnswer);
 
-const makeGame = (player, makeQuestion, questionToString, checkAnswer, goal) => () => {
+const makeGame = (makeQuestion, questionToString, checkAnswer, goal = 3) => () => {
+  console.log('Welcome to the Brain Games!');
+  const player = getUsername();
   let score = 0;
   let question;
   let userAnswer;
@@ -29,4 +31,4 @@ const makeGame = (player, makeQuestion, questionToString, checkAnswer, goal) => 
   return `You win, ${player}!`;
 };
 
-export { makeGame, getUsername };
+export default makeGame;
