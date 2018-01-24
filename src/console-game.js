@@ -8,8 +8,10 @@ const getUsername = () => getUserInput('What\'s your name, buddy?')();
 
 const isCorrect = (userAnswer, checker) => checker(userAnswer);
 
-const makeGame = (makeQuestion, questionToString, checkAnswer, goal = 3) => () => {
+const makeGame = (rules, makeQuestion, questionToString, checkAnswer, goal = 3) => () => {
   console.log('Welcome to the Brain Games!');
+  console.log(rules);
+
   const player = getUsername();
   let score = 0;
   let question;
