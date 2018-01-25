@@ -1,6 +1,6 @@
 {
   "name": "braingames-ignat",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
