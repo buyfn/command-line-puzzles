@@ -32,7 +32,7 @@ const makeQuestion = () => {
   const problem = String(randomInt(lowerLimit, upperLimit));
   const solution = balance(problem);
 
-  return { problem, solution: String(solution) };
+  return { problem, solution };
 };
 
 export default makeGame(rules, makeQuestion);
