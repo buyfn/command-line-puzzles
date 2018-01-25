@@ -1,6 +1,5 @@
-import { cons, car, cdr } from 'hexlet-pairs';
 import { randomInt, gcd } from '../math';
-import makeGame from '../console-game';
+import makeGame from '..';
 
 const rules = 'Enter greates common divisor of given numbers';
 
@@ -11,11 +10,10 @@ const makeQuestion = () => {
   const a = randomInt(lowerLimit, upperLimit);
   const b = randomInt(lowerLimit, upperLimit);
 
-  return cons(a, b);
+  const problem = `${a} ${b}`;
+  const solution = gcd(Math.max(a, b), Math.min(a, b));
+
+  return { problem, solution: String(solution) };
 };
 
-const questionToString = question => `${car(question)} ${cdr(question)}`;
-
-const solveQuestion = question => gcd(car(question), cdr(question));
-
-export default makeGame(rules, makeQuestion, questionToString, solveQuestion);
+export default makeGame(rules, makeQuestion);
