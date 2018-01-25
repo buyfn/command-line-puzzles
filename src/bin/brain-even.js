@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { brainEven } from '../make-game';
+import game from '../games/even';
 
-console.log(brainEven());
+console.log(game());

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { brainGCD } from '../make-game';
+import game from '../games/gcd';
 
-console.log(brainGCD());
+console.log(game());

@@ -6,9 +6,7 @@ const getAnswer = () => getUserInput('Your answer:')();
 
 const getUsername = () => getUserInput('What\'s your name, buddy?')();
 
-const isCorrect = (userAnswer, checker) => checker(userAnswer);
-
-const makeGame = (rules, makeQuestion, questionToString, checkAnswer, goal = 3) => () => {
+const makeGame = (rules, makeQuestion, questionToString, solve, goal = 3) => () => {
   console.log('Welcome to the Brain Games!');
   console.log(rules);
 
@@ -22,7 +20,7 @@ const makeGame = (rules, makeQuestion, questionToString, checkAnswer, goal = 3) 
     console.log(`Question: ${questionToString(question)}`);
     userAnswer = getAnswer();
 
-    if (isCorrect(userAnswer, checkAnswer(question))) {
+    if (userAnswer === String(solve(question))) {
       score += 1;
       console.log('Correcto!');
     } else {

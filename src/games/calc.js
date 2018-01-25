@@ -1,8 +1,9 @@
 import { cons, car, cdr } from 'hexlet-pairs';
+import makeGame from '../console-game';
 
-export const rules = 'Enter solution to the math problem.';
+const rules = 'Enter solution to the math problem.';
 
-export const makeQuestion = () => {
+const makeQuestion = () => {
   const randomNum = (upperLimit = 10) =>
     Math.round((Math.random() * upperLimit));
 
@@ -23,7 +24,7 @@ export const makeQuestion = () => {
   return cons(op, cons(randomNum(), randomNum()));
 };
 
-export const questionToString = question =>
+const questionToString = question =>
   `${car(cdr(question))} ${car(question)} ${cdr(cdr(question))}`;
 
 const solveQuestion = (question) => {
@@ -46,6 +47,4 @@ const solveQuestion = (question) => {
   return res;
 };
 
-export const checkAnswer = question => answer =>
-  answer === String(solveQuestion(question));
-
+export default makeGame(rules, makeQuestion, questionToString, solveQuestion);
