@@ -4,31 +4,31 @@ const getUserInput = message => () => readlineSync.question(`${message} `);
 
 const getAnswer = () => getUserInput('Your answer:')();
 
-const getUsername = () => getUserInput('What\'s your name, buddy?')();
+const getUsername = () => getUserInput('But first, tell me your name:')();
 
 const makeGame = (rules, makeQuestion, goal = 3) => () => {
   console.log('Welcome to the Brain Games!');
-  console.log(rules);
-
+  console.log(`${rules}\n`);
   const player = getUsername();
-  let score = 0;
-  let question;
-  let userAnswer;
 
-  while (score < goal) {
-    question = makeQuestion();
-    console.log(`Question: ${question.problem}`);
-    userAnswer = getAnswer();
+  const playRound = (score) => {
+    if (score >= goal) {
+      return `\nYou win, ${player}!`;
+    }
+
+    const question = makeQuestion();
+    console.log(`\nQuestion: ${question.problem}`);
+    const userAnswer = getAnswer();
 
     if (userAnswer === question.solution) {
-      score += 1;
       console.log('Correcto!');
-    } else {
-      return `Better luck next time, ${player}.`;
+      return playRound(score + 1);
     }
-  }
 
-  return `You win, ${player}!`;
+    return `\nBetter luck next time, ${player}.`;
+  };
+
+  return playRound(0);
 };
 
 export default makeGame;

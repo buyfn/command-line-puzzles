@@ -3,14 +3,7 @@ export const randomInt = (min, max) =>
 
 export const isEven = n => n % 2 === 0;
 
-export const gcd = (a, b) => {
-  const iter = (big, small) => {
-    if (small === 0) {
-      return big;
-    }
+export const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
 
-    return iter(small, big % small);
-  };
-
-  return iter(Math.max(a, b), Math.min(a, b));
-};
+export const max = xs => xs.reduce((a, b) => Math.max(a, b));
+export const min = xs => xs.reduce((a, b) => Math.min(a, b));

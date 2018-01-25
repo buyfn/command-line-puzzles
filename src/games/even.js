@@ -4,7 +4,7 @@ import makeGame from '..';
 const rules = 'Answer "yes" if the number is even. Answer "no" otherwise.';
 
 const makeQuestion = () => {
-  const lowerLimit = 0;
+  const lowerLimit = 1;
   const upperLimit = 100;
 
   const problem = randomInt(lowerLimit, upperLimit);
