@@ -8,7 +8,7 @@ npm install -g braingames-ignat
 ```
 
 ## Run
-```bash
+```
 ~ brain-even
 
 Welcome to the Brain Games!
@@ -35,4 +35,5 @@ You win, Albert!
 - brain-even,
 - brain-calc,
 - brain-gcd,
-- brain-balance.
+- brain-balance,
+- brain-progression.
