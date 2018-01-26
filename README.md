@@ -36,4 +36,5 @@ You win, Albert!
 - brain-calc,
 - brain-gcd,
 - brain-balance,
-- brain-progression.
+- brain-progression,
+- brain-prime.
